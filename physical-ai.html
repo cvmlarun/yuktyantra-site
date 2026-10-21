@@ -1,0 +1,741 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23121824'/%3E%3Cpath d='M8 24L16 6l8 18M11 18h10' stroke='%2338bdf8' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700;12..96,800&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<title>Physical AI &amp; Manipulation — YuktYantra</title>
+<meta name="description" content="Physical AI programme: sim-to-real grapevine cane pruning policies and crowdsourced mobile challenge protocols designed around DPDP consent.">
+<style>
+  :root {
+    --bg: #0b0f17;
+    --surface: #111722;
+    --surface-elevated: #182030;
+    --surface-card: #131b28;
+    --surface-hover: #1e283d;
+    --ink: #f8fafc;
+    --ink-bright: #ffffff;
+    --muted: #94a3b8;
+    --faint: #64748b;
+    --border: rgba(255, 255, 255, 0.09);
+    --border-bright: rgba(255, 255, 255, 0.18);
+    --cyan: #38bdf8;
+    --cyan-soft: rgba(56, 189, 248, 0.12);
+    --cyan-border: rgba(56, 189, 248, 0.32);
+    --green: #10b981;
+    --green-soft: rgba(16, 185, 129, 0.12);
+    --green-border: rgba(16, 185, 129, 0.32);
+    --purple: #a855f7;
+    --purple-soft: rgba(168, 85, 247, 0.12);
+    --purple-border: rgba(168, 85, 247, 0.32);
+    --amber: #f59e0b;
+    --amber-soft: rgba(245, 158, 11, 0.12);
+    --amber-border: rgba(245, 158, 11, 0.32);
+    --f-display: "Bricolage Grotesque", -apple-system, BlinkMacSystemFont, sans-serif;
+    --f-body: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+    --f-mono: "JetBrains Mono", ui-monospace, monospace;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--f-body);
+    font-size: 16px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--cyan);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  .wrap {
+    width: min(1200px, 100% - 48px);
+    margin-inline: auto;
+  }
+
+  a { color: inherit; text-decoration: none; }
+  .mono { font-family: var(--f-mono); }
+
+  header.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    background: rgba(11, 15, 23, 0.92);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 0;
+  }
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-family: var(--f-display);
+    font-weight: 700;
+    font-size: 21px;
+    letter-spacing: -0.02em;
+    color: var(--ink-bright);
+  }
+  .brand-logo {
+    width: 36px;
+    height: 36px;
+    background: linear-gradient(135deg, #1e293b, #0f172a);
+    border: 1px solid var(--border-bright);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--cyan);
+    box-shadow: 0 0 14px rgba(56, 189, 248, 0.2);
+  }
+  .brand span.tag {
+    font-family: var(--f-mono);
+    font-size: 11px;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 4px;
+    background: var(--cyan-soft);
+    color: var(--cyan);
+    border: 1px solid var(--cyan-border);
+  }
+
+  nav.main-nav {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    font-size: 14.5px;
+    font-weight: 500;
+  }
+  nav.main-nav a {
+    color: var(--muted);
+    transition: color 0.15s ease;
+    padding: 6px 0;
+    position: relative;
+  }
+  nav.main-nav a:hover, nav.main-nav a.active {
+    color: var(--ink-bright);
+  }
+  nav.main-nav a.active::after {
+    content: "";
+    position: absolute;
+    bottom: -17px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--cyan);
+  }
+
+  .nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 9px 18px;
+    border-radius: 7px;
+    font-weight: 600;
+    font-size: 14px;
+    transition: all 0.2s ease;
+    cursor: pointer;
+  }
+  .btn-primary {
+    background: var(--cyan);
+    color: #0b0f17;
+  }
+  .btn-primary:hover {
+    background: #7dd3fc;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 18px rgba(56, 189, 248, 0.35);
+  }
+  .btn-outline {
+    background: transparent;
+    color: var(--ink);
+    border: 1px solid var(--border-bright);
+  }
+  .btn-outline:hover {
+    background: var(--surface-elevated);
+    border-color: var(--muted);
+    color: var(--ink-bright);
+  }
+
+  .stage-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: var(--f-mono);
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 3px 9px;
+    border-radius: 999px;
+  }
+  .stage-field { background: var(--green-soft); color: var(--green); border: 1px solid var(--green-border); }
+  .stage-research { background: var(--purple-soft); color: var(--purple); border: 1px solid var(--purple-border); }
+  .stage-dev { background: var(--cyan-soft); color: var(--cyan); border: 1px solid var(--cyan-border); }
+  .stage-concept { background: var(--amber-soft); color: var(--amber); border: 1px solid var(--amber-border); }
+
+  .status-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--f-mono);
+    font-size: 12px;
+    padding: 4px 12px;
+    border-radius: 999px;
+    background: var(--cyan-soft);
+    border: 1px solid var(--cyan-border);
+    color: var(--cyan);
+  }
+  .pulse-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--cyan);
+    box-shadow: 0 0 8px var(--cyan);
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.35; transform: scale(0.85); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .pulse-dot { animation: none; }
+  }
+
+  section {
+    padding: 84px 0;
+    border-top: 1px solid var(--border);
+  }
+  .eyebrow {
+    font-family: var(--f-mono);
+    font-size: 12px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--cyan);
+    margin-bottom: 14px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .eyebrow.green { color: var(--green); }
+  .eyebrow.purple { color: var(--purple); }
+  .eyebrow.amber { color: var(--amber); }
+
+  h1, h2, h3, h4 {
+    font-family: var(--f-display);
+    font-weight: 700;
+    line-height: 1.12;
+    letter-spacing: -0.025em;
+    color: var(--ink-bright);
+  }
+  h1 { font-size: clamp(36px, 5vw, 60px); }
+  h2 { font-size: clamp(26px, 3.2vw, 40px); margin-bottom: 16px; }
+  h3 { font-size: 22px; margin-bottom: 10px; }
+  p.lead {
+    font-size: 18.5px;
+    color: var(--muted);
+    max-width: 46em;
+    line-height: 1.6;
+    margin-bottom: 28px;
+  }
+
+  .grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .grid-2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px;
+  }
+  .card {
+    background: var(--surface-card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 30px;
+    transition: all 0.25s ease;
+  }
+  .card:hover {
+    border-color: var(--border-bright);
+    background: var(--surface-elevated);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
+  }
+
+  .tag-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 16px;
+    list-style: none;
+  }
+  .tag-group li {
+    font-family: var(--f-mono);
+    font-size: 11.5px;
+    padding: 3px 8px;
+    background: var(--surface-elevated);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    color: var(--muted);
+  }
+
+  /* Specific Responsive Layout Classes (replaces inline styles) */
+  .home-internship-banner {
+    background: linear-gradient(180deg, #121a28 0%, var(--surface) 100%);
+    border: 1px solid var(--cyan-border);
+    border-radius: 16px;
+    padding: 44px;
+    display: grid;
+    grid-template-columns: 1.25fr 0.75fr;
+    gap: 40px;
+    align-items: center;
+    box-shadow: 0 12px 36px rgba(56, 189, 248, 0.08);
+  }
+  .track-card {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 32px;
+  }
+  @media (max-width: 860px) {
+    .home-internship-banner {
+      grid-template-columns: 1fr !important;
+      gap: 24px;
+      padding: 28px;
+    }
+    .track-card {
+      grid-template-columns: 1fr !important;
+      gap: 20px;
+      padding: 24px;
+    }
+  }
+
+  footer.site-footer {
+    border-top: 1px solid var(--border);
+    background: #070a10;
+    padding: 68px 0 44px;
+    color: #94a3b8;
+    font-size: 14px;
+  }
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 48px;
+  }
+  .footer-col h4 {
+    font-family: var(--f-mono);
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-bright);
+    margin-bottom: 18px;
+  }
+  .footer-col ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .footer-col a:hover { color: var(--ink-bright); }
+  .footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 32px;
+    border-top: 1px solid var(--border);
+    font-size: 13px;
+    color: #94a3b8;
+  }
+
+  .mobile-subnav {
+    display: none;
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+    padding: 10px 16px;
+    overflow-x: auto;
+    white-space: nowrap;
+    gap: 16px;
+    font-size: 13px;
+  }
+  .mobile-subnav a {
+    color: var(--muted);
+    padding: 4px 8px;
+    border-radius: 4px;
+  }
+  .mobile-subnav a.active {
+    color: var(--cyan);
+    background: var(--cyan-soft);
+  }
+
+  @media (max-width: 960px) {
+    .grid-3 { grid-template-columns: 1fr; }
+    .grid-2 { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+  }
+  @media (max-width: 680px) {
+    nav.main-nav { display: none; }
+    .mobile-subnav { display: flex; }
+    .footer-grid { grid-template-columns: 1fr; }
+    .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+  }
+</style>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap nav-bar">
+    <a class="brand" href="index.html" aria-label="YuktYantra Home">
+      <div class="brand-logo">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+      </div>
+      <div>YuktYantra</div>
+      <span class="tag">APPLIED AI</span>
+    </a>
+    <nav class="main-nav" aria-label="Primary navigation">
+      <a href="index.html">Overview</a><a href="agrotech.html">Farm AI</a><a href="voice-ai.html">Voice AI</a><a href="physical-ai.html" class="active">Physical AI</a><a href="internships.html">Internships</a>
+    </nav>
+    <div class="nav-actions">
+      <a class="btn btn-primary" href="internships.html">Internships</a>
+    </div>
+  </div>
+  <div class="mobile-subnav" aria-label="Mobile navigation">
+    <a href="index.html">Overview</a><a href="agrotech.html">Farm AI</a><a href="voice-ai.html">Voice AI</a><a href="physical-ai.html" class="active">Physical AI</a><a href="internships.html">Internships</a>
+  </div>
+</header>
+<main>
+  <div style="padding: 88px 0 64px; background: radial-gradient(circle at 50% 0%, rgba(168, 85, 247, 0.12), transparent 70%);">
+    <div class="wrap">
+      <div class="eyebrow purple">Embodied Manipulation Systems</div>
+      <h1>Teaching Machines Dexterous Manual Judgement</h1>
+      <p class="lead">
+        Language models scaled on billions of internet tokens. Robots have no web of physical demonstrations. We build sim-to-real precision agriculture pruning policies and crowdsourced mobile skill challenges that generate dense bimanual reward models from camera feeds.
+      </p>
+      <div style="display:flex;gap:14px;flex-wrap:wrap;">
+        <a class="btn btn-primary" style="background:var(--purple);color:#ffffff;" href="#pruning-benchmark">Vineyard Pruning Policy</a>
+        <a class="btn btn-outline" href="#gamified-challenges">Mobile Skill Challenge Engine</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 1: GRAPEVINE PRUNING BENCHMARK -->
+  <section id="pruning-benchmark">
+    <span id="cut-benchmark" style="display:none;"></span>
+    <div class="wrap">
+      <div class="eyebrow purple">Sim-to-Real Benchmark</div>
+      <h2>Grapevine Pruning: Judgement Over Repetition</h2>
+      <p class="lead">
+        Unlike repetitive pick-and-place, winter grapevine cane pruning requires complex spatial reasoning: deciding which dormant canes to keep, counting viable buds, and executing clean shear cuts under severe visual occlusion.
+      </p>
+
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:28px;margin-top:32px;">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;">
+          <div>
+            <h3 style="font-size:19px;">Interactive Cane Pruning Decision Model</h3>
+            <p style="font-size:14px;color:var(--muted);">Click on a candidate node (A, B, C, D) to evaluate bud retention and model reward score.</p>
+          </div>
+          <span class="status-pill" style="background:var(--purple-soft);color:var(--purple);border-color:var(--purple-border);">
+            Interactive Vision Policy
+          </span>
+        </div>
+
+        <svg viewBox="0 0 800 320" id="caneSvg" style="width:100%;height:auto;display:block;">
+          <path d="M40 280 Q 200 270 320 250" fill="none" stroke="#78350f" stroke-width="20" stroke-linecap="round"/>
+          <text x="50" y="305" font-family="JetBrains Mono" font-size="12" fill="#94a3b8">MAIN CORDON</text>
+          <path id="caneWood" d="M300 250 C 420 220 540 180 680 60" fill="none" stroke="#b45309" stroke-width="10" stroke-linecap="round"/>
+
+          <circle cx="360" cy="235" r="5" fill="#451a03"/>
+          <circle cx="430" cy="215" r="5" fill="#451a03"/>
+          <circle cx="490" cy="190" r="5" fill="#451a03"/>
+          <circle cx="550" cy="160" r="5" fill="#451a03"/>
+          <circle cx="610" cy="125" r="5" fill="#451a03"/>
+          <circle cx="660" cy="85" r="5" fill="#451a03"/>
+
+          <!-- Candidate Cut Points -->
+          <g style="cursor:pointer;" onclick="selectCut('A', 2, 0.94, 'Optimal Spur Prune (2-3 buds retained for fruit production)')">
+            <circle id="nodeA" cx="430" cy="215" r="14" fill="#151d2c" stroke="#8b5cf6" stroke-width="2.5"/>
+            <text x="430" y="219" font-family="JetBrains Mono" font-size="11" fill="#f1f5f9" text-anchor="middle" font-weight="bold">A</text>
+          </g>
+          <g style="cursor:pointer;" onclick="selectCut('B', 4, 0.72, 'Sub-optimal: Cane too long, excess vigor risk')">
+            <circle id="nodeB" cx="550" cy="160" r="14" fill="#151d2c" stroke="#64748b" stroke-width="2"/>
+            <text x="550" y="164" font-family="JetBrains Mono" font-size="11" fill="#f1f5f9" text-anchor="middle" font-weight="bold">B</text>
+          </g>
+          <g style="cursor:pointer;" onclick="selectCut('C', 1, 0.41, 'Severe Prune: Only 1 basal bud, risk of blind bud failure')">
+            <circle id="nodeC" cx="360" cy="235" r="14" fill="#151d2c" stroke="#64748b" stroke-width="2"/>
+            <text x="360" y="239" font-family="JetBrains Mono" font-size="11" fill="#f1f5f9" text-anchor="middle" font-weight="bold">C</text>
+          </g>
+          <g style="cursor:pointer;" onclick="selectCut('D', 6, 0.18, 'Unacceptable: Fails to control vine canopy footprint')">
+            <circle id="nodeD" cx="660" cy="85" r="14" fill="#151d2c" stroke="#64748b" stroke-width="2"/>
+            <text x="660" y="89" font-family="JetBrains Mono" font-size="11" fill="#f1f5f9" text-anchor="middle" font-weight="bold">D</text>
+          </g>
+        </svg>
+
+        <div style="background:var(--surface-elevated);border:1px solid var(--border);border-radius:8px;padding:16px;margin-top:16px;display:flex;justify-content:space-between;align-items:center;">
+          <div>
+            <span class="mono" style="font-size:12px;color:var(--purple);display:block;" id="cutFeedbackLabel">Selected Cut Point: Node A</span>
+            <span style="font-size:14.5px;color:var(--ink-bright);" id="cutFeedbackDesc">Optimal Spur Prune (2-3 buds retained for fruit production)</span>
+          </div>
+          <div style="text-align:right;">
+            <div class="mono" style="font-size:20px;font-weight:700;color:var(--green);" id="cutFeedbackScore">Score: 0.94 / 1.0</div>
+            <div style="font-size:12px;color:var(--muted);">Policy Confidence</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 2: GAMIFIED MOBILE DATASET ENGINE -->
+  <section id="gamified-challenges" style="background: var(--surface);">
+    <div class="wrap">
+      <div class="eyebrow purple">Crowdsourced Physical AI</div>
+      <h2>The Mobile "Skill Challenge" Data Engine</h2>
+      <p class="lead">
+        Niantic used mobile player scans to assemble geospatial models. We adapt this crowdsourcing paradigm to domestic robotic manipulation: mobile skill challenges where users attempt physical dexterity tasks and on-device computer vision grades each attempt.
+      </p>
+
+      <div class="grid-2" style="margin-top:32px;">
+        <div class="card">
+          <h3 style="color:var(--purple);">The Breakthrough: The Rater is the Reward Model</h3>
+          <p style="color:var(--muted);font-size:15px;line-height:1.6;">
+            A neural vision model that scores <em>"did they fold the shirt cleanly / stack the tumblers stably / tie the bowline correctly"</em> is fundamentally a success detector—identical to an RL reward function. Every attempt yields dense, labelled trajectory data that passive video scrapers can never provide.
+          </p>
+        </div>
+        <div class="card">
+          <h3 style="color:var(--purple);">Structured Domestic Tasks over Random Motion</h3>
+          <p style="color:var(--muted);font-size:15px;line-height:1.6;">
+            Instead of front-camera fitness jumping jacks, our challenge specifications feature propped-phone or headband egocentric angles capturing close-up hand-object physics: deformable dough, cloth, micro-beans, and fluid meniscus alignment.
+          </p>
+        </div>
+      </div>
+
+      <div style="margin-top:56px;">
+        <div class="eyebrow purple">Phase 1 &amp; Phase 2 Challenge Portfolio</div>
+        <h3>10 Standardized Camera-Rated Manipulation Challenge Concepts</h3>
+        <p style="color:var(--muted);font-size:15px;margin-bottom:28px;">
+          Scored primarily from end-state verification plus temporal hand-pose trajectories. Phase 1 targets (Steady Stack, Dal Sort, Fold Off) form the foundation for undergraduate student vision raters.
+        </p>
+
+        <div class="grid-3">
+          <!-- 1. Steady Stack -->
+          <div class="card">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;">
+              <span class="mono" style="color:var(--purple);font-size:12px;font-weight:600;">CHALLENGE 01</span>
+              <span class="stage-badge stage-dev">Phase 1 Target</span>
+            </div>
+            <h4>Steady Stack</h4>
+            <p style="color:var(--muted);font-size:14px;line-height:1.55;margin-bottom:14px;">Stack steel tumblers, brass cups, or coins as high as possible against a 30s timer.</p>
+            <div style="border-top:1px solid var(--border);padding-top:10px;font-size:12.5px;color:var(--muted);">
+              <div><strong style="color:var(--ink-bright);">End-State Rater:</strong> Stack height, vertical plumb line, wobble delta.</div>
+              <div><strong style="color:var(--ink-bright);">Data Target:</strong> Precise placement and stability.</div>
+            </div>
+          </div>
+
+          <!-- 2. Dal Sort -->
+          <div class="card">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;">
+              <span class="mono" style="color:var(--purple);font-size:12px;font-weight:600;">CHALLENGE 02</span>
+              <span class="stage-badge stage-dev">Phase 1 Target</span>
+            </div>
+            <h4>Dal Sort</h4>
+            <p style="color:var(--muted);font-size:14px;line-height:1.55;margin-bottom:14px;">Separate mixed rajma, chana, and moong beans into three distinct bowls.</p>
+            <div style="border-top:1px solid var(--border);padding-top:10px;font-size:12.5px;color:var(--muted);">
+              <div><strong style="color:var(--ink-bright);">End-State Rater:</strong> Purity ratio per bowl, sorting speed.</div>
+              <div><strong style="color:var(--ink-bright);">Data Target:</strong> High-volume pick-and-place with varied pinches.</div>
+            </div>
+          </div>
+
+          <!-- 3. Fold Off -->
+          <div class="card">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;">
+              <span class="mono" style="color:var(--purple);font-size:12px;font-weight:600;">CHALLENGE 03</span>
+              <span class="stage-badge stage-dev">Phase 1 Target</span>
+            </div>
+            <h4>Fold Off</h4>
+            <p style="color:var(--muted);font-size:14px;line-height:1.55;margin-bottom:14px;">Fold a cotton T-shirt or towel into a compact rectangle against time.</p>
+            <div style="border-top:1px solid var(--border);padding-top:10px;font-size:12.5px;color:var(--muted);">
+              <div><strong style="color:var(--ink-bright);">End-State Rater:</strong> Edge parallelism, symmetry, footprint.</div>
+              <div><strong style="color:var(--ink-bright);">Data Target:</strong> Deformable 2D cloth manipulation benchmark.</div>
+            </div>
+          </div>
+
+          <!-- 4. Roti Round -->
+          <div class="card">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;">
+              <span class="mono" style="color:var(--purple);font-size:12px;font-weight:600;">CHALLENGE 04</span>
+              <span class="stage-badge stage-concept">Concept</span>
+            </div>
+            <h4>Roti Round</h4>
+            <p style="color:var(--muted);font-size:14px;line-height:1.55;margin-bottom:14px;">Roll dough into a uniform circle using a traditional rolling pin (belan).</p>
+            <div style="border-top:1px solid var(--border);padding-top:10px;font-size:12.5px;color:var(--muted);">
+              <div><strong style="color:var(--ink-bright);">End-State Rater:</strong> Boundary circularity, thickness variance.</div>
+              <div><strong style="color:var(--ink-bright);">Data Target:</strong> Deformable elastoplastic tool control.</div>
+            </div>
+          </div>
+
+          <!-- 5. Knot Master -->
+          <div class="card">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;">
+              <span class="mono" style="color:var(--purple);font-size:12px;font-weight:600;">CHALLENGE 05</span>
+              <span class="stage-badge stage-concept">Concept</span>
+            </div>
+            <h4>Knot Master</h4>
+            <p style="color:var(--muted);font-size:14px;line-height:1.55;margin-bottom:14px;">Tie a specified knot (shoelace, reef knot, or bowline) shown on screen.</p>
+            <div style="border-top:1px solid var(--border);padding-top:10px;font-size:12.5px;color:var(--muted);">
+              <div><strong style="color:var(--ink-bright);">End-State Rater:</strong> Topological knot graph classification.</div>
+              <div><strong style="color:var(--ink-bright);">Data Target:</strong> Fine bimanual dexterity and cord tracing.</div>
+            </div>
+          </div>
+
+          <!-- 6. Pour Perfect -->
+          <div class="card">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;">
+              <span class="mono" style="color:var(--purple);font-size:12px;font-weight:600;">CHALLENGE 06</span>
+              <span class="stage-badge stage-concept">Concept</span>
+            </div>
+            <h4>Pour Perfect</h4>
+            <p style="color:var(--muted);font-size:14px;line-height:1.55;margin-bottom:14px;">Pour water from a container into a glass precisely to a marked indicator line.</p>
+            <div style="border-top:1px solid var(--border);padding-top:10px;font-size:12.5px;color:var(--muted);">
+              <div><strong style="color:var(--ink-bright);">End-State Rater:</strong> Meniscus fill line delta, spill count.</div>
+              <div><strong style="color:var(--ink-bright);">Data Target:</strong> Liquid handling and wrist rotational torque.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 3: PRIVACY & DPDP ACT -->
+  <section id="privacy">
+    <div class="wrap">
+      <div class="eyebrow purple">Compliance &amp; Governance</div>
+      <h2>Privacy Architecture Designed Around India's DPDP Act</h2>
+      <p class="lead">
+        Collecting visual data from homes requires ethical safeguards and privacy preservation. YuktYantra specifies on-device sanitization before any video chunk ever leaves the participant's device.
+      </p>
+
+      <div class="grid-3" style="margin-top:32px;">
+        <div class="card">
+          <div class="mono" style="color:var(--purple);font-size:13px;margin-bottom:8px;">ON-DEVICE BLURRING</div>
+          <h3>Local Face &amp; Identity Masking</h3>
+          <p style="color:var(--muted);font-size:14.5px;">
+            A lightweight edge model detects and blurs human faces, personal photos, and background identity markers directly in device RAM before video encoding.
+          </p>
+        </div>
+        <div class="card">
+          <div class="mono" style="color:var(--purple);font-size:13px;margin-bottom:8px;">AGE &amp; CONSENT GATE</div>
+          <h3>Strict 18+ Verifiable Opt-In</h3>
+          <p style="color:var(--muted);font-size:14.5px;">
+            Explicit digital consent flow designed around DPDP requirements. Zero collection from minors, with encrypted, revocable contributor consent logs.
+          </p>
+        </div>
+        <div class="card">
+          <div class="mono" style="color:var(--purple);font-size:13px;margin-bottom:8px;">BANDWIDTH &amp; SELECTION</div>
+          <h3>Selective Wi-Fi Sync</h3>
+          <p style="color:var(--muted);font-size:14.5px;">
+            Only scored challenge episodes are preserved. High-score attempts and informative failure trajectories are queued locally and synced over Wi-Fi.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script>
+  function selectCut(nodeId, buds, score, desc) {
+    const lbl = document.getElementById('cutFeedbackLabel');
+    const d = document.getElementById('cutFeedbackDesc');
+    const s = document.getElementById('cutFeedbackScore');
+    if(lbl) lbl.textContent = `Selected Cut Point: Node ${nodeId} (${buds} buds retained)`;
+    if(d) d.textContent = desc;
+    if(s) s.textContent = `Score: ${score} / 1.0`;
+
+    const nodes = ['A', 'B', 'C', 'D'];
+    nodes.forEach(n => {
+      const el = document.getElementById('node' + n);
+      if(!el) return;
+      if (n === nodeId) {
+        el.setAttribute('stroke', '#a855f7');
+        el.setAttribute('stroke-width', '3.5');
+        el.setAttribute('fill', '#a855f7');
+      } else {
+        el.setAttribute('stroke', '#64748b');
+        el.setAttribute('stroke-width', '2');
+        el.setAttribute('fill', '#151d2c');
+      }
+    });
+  }
+</script>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <div class="brand" style="margin-bottom: 14px;">
+          <div class="brand-logo" style="width:28px;height:28px;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+          </div>
+          <div>YuktYantra</div>
+        </div>
+        <p style="font-size:14px;line-height:1.6;margin-bottom:16px;">
+          YuktYantra is an applied AI systems research enterprise based in Bengaluru and Vijayapura district, Karnataka.
+        </p>
+        <span class="status-pill">
+          <span class="pulse-dot"></span> Field Lab: Sindagi Taluk &middot; R&amp;D: Bengaluru
+        </span>
+      </div>
+      <div class="footer-col">
+        <h4>Programmes &amp; Systems</h4>
+        <ul>
+          <li><a href="agrotech.html">Farm AI &amp; Vineyard Monitoring</a></li>
+          <li><a href="voice-ai.html">Full-Duplex Voice Research</a></li>
+          <li><a href="physical-ai.html">Physical AI &amp; Pruning Simulator</a></li>
+          <li><a href="physical-ai.html#gamified-challenges">Mobile Skill Challenges (Concept)</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Student Opportunities</h4>
+        <ul>
+          <li><a href="internships.html">Internships for B.Tech &amp; B.Sc Horticulture</a></li>
+          <li><a href="internships.html#tracks">Project Tracks &amp; Mentorship</a></li>
+          <li><a href="internships.html#agreement">IP Agreement &amp; Attribution</a></li>
+          <li><a href="physical-ai.html#privacy">DPDP Consent Architecture</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Institutional Details</h4>
+        <ul>
+          <li><span style="color:#f8fafc;">Enterprise: YuktYantra (a unit of Arun Patil Labs)</span></li>
+          <li><span style="color:#94a3b8;">Udyam: Registered under Arun Patil Labs</span></li>
+          <li><a href="mailto:arun.patil@arunpatillabs.com">arun.patil@arunpatillabs.com</a></li>
+          <li><span style="color:#94a3b8;">Bengaluru &amp; Sindagi Taluk</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>&copy; 2026 YuktYantra, a unit of Arun Patil Labs. All rights reserved. Registered under Udyam (Karnataka).</div>
+      <div>11 Patent Filings (8 Granted) &middot; Hardware-Aware Intelligence &middot; Open Field Benchmarks</div>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

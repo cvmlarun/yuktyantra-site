@@ -1,0 +1,704 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23121824'/%3E%3Cpath d='M8 24L16 6l8 18M11 18h10' stroke='%2338bdf8' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700;12..96,800&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<title>Internships for B.Tech &amp; B.Sc Horticulture — YuktYantra</title>
+<meta name="description" content="Student R&amp;D internships and capstone fellowships for B.Tech and B.Sc Horticulture: viticulture vision, mobile challenges, and speech AI.">
+<style>
+  :root {
+    --bg: #0b0f17;
+    --surface: #111722;
+    --surface-elevated: #182030;
+    --surface-card: #131b28;
+    --surface-hover: #1e283d;
+    --ink: #f8fafc;
+    --ink-bright: #ffffff;
+    --muted: #94a3b8;
+    --faint: #64748b;
+    --border: rgba(255, 255, 255, 0.09);
+    --border-bright: rgba(255, 255, 255, 0.18);
+    --cyan: #38bdf8;
+    --cyan-soft: rgba(56, 189, 248, 0.12);
+    --cyan-border: rgba(56, 189, 248, 0.32);
+    --green: #10b981;
+    --green-soft: rgba(16, 185, 129, 0.12);
+    --green-border: rgba(16, 185, 129, 0.32);
+    --purple: #a855f7;
+    --purple-soft: rgba(168, 85, 247, 0.12);
+    --purple-border: rgba(168, 85, 247, 0.32);
+    --amber: #f59e0b;
+    --amber-soft: rgba(245, 158, 11, 0.12);
+    --amber-border: rgba(245, 158, 11, 0.32);
+    --f-display: "Bricolage Grotesque", -apple-system, BlinkMacSystemFont, sans-serif;
+    --f-body: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+    --f-mono: "JetBrains Mono", ui-monospace, monospace;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--f-body);
+    font-size: 16px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--cyan);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  .wrap {
+    width: min(1200px, 100% - 48px);
+    margin-inline: auto;
+  }
+
+  a { color: inherit; text-decoration: none; }
+  .mono { font-family: var(--f-mono); }
+
+  header.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    background: rgba(11, 15, 23, 0.92);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 0;
+  }
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-family: var(--f-display);
+    font-weight: 700;
+    font-size: 21px;
+    letter-spacing: -0.02em;
+    color: var(--ink-bright);
+  }
+  .brand-logo {
+    width: 36px;
+    height: 36px;
+    background: linear-gradient(135deg, #1e293b, #0f172a);
+    border: 1px solid var(--border-bright);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--cyan);
+    box-shadow: 0 0 14px rgba(56, 189, 248, 0.2);
+  }
+  .brand span.tag {
+    font-family: var(--f-mono);
+    font-size: 11px;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 4px;
+    background: var(--cyan-soft);
+    color: var(--cyan);
+    border: 1px solid var(--cyan-border);
+  }
+
+  nav.main-nav {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    font-size: 14.5px;
+    font-weight: 500;
+  }
+  nav.main-nav a {
+    color: var(--muted);
+    transition: color 0.15s ease;
+    padding: 6px 0;
+    position: relative;
+  }
+  nav.main-nav a:hover, nav.main-nav a.active {
+    color: var(--ink-bright);
+  }
+  nav.main-nav a.active::after {
+    content: "";
+    position: absolute;
+    bottom: -17px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--cyan);
+  }
+
+  .nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 9px 18px;
+    border-radius: 7px;
+    font-weight: 600;
+    font-size: 14px;
+    transition: all 0.2s ease;
+    cursor: pointer;
+  }
+  .btn-primary {
+    background: var(--cyan);
+    color: #0b0f17;
+  }
+  .btn-primary:hover {
+    background: #7dd3fc;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 18px rgba(56, 189, 248, 0.35);
+  }
+  .btn-outline {
+    background: transparent;
+    color: var(--ink);
+    border: 1px solid var(--border-bright);
+  }
+  .btn-outline:hover {
+    background: var(--surface-elevated);
+    border-color: var(--muted);
+    color: var(--ink-bright);
+  }
+
+  .stage-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: var(--f-mono);
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 3px 9px;
+    border-radius: 999px;
+  }
+  .stage-field { background: var(--green-soft); color: var(--green); border: 1px solid var(--green-border); }
+  .stage-research { background: var(--purple-soft); color: var(--purple); border: 1px solid var(--purple-border); }
+  .stage-dev { background: var(--cyan-soft); color: var(--cyan); border: 1px solid var(--cyan-border); }
+  .stage-concept { background: var(--amber-soft); color: var(--amber); border: 1px solid var(--amber-border); }
+
+  .status-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--f-mono);
+    font-size: 12px;
+    padding: 4px 12px;
+    border-radius: 999px;
+    background: var(--cyan-soft);
+    border: 1px solid var(--cyan-border);
+    color: var(--cyan);
+  }
+  .pulse-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--cyan);
+    box-shadow: 0 0 8px var(--cyan);
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.35; transform: scale(0.85); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .pulse-dot { animation: none; }
+  }
+
+  section {
+    padding: 84px 0;
+    border-top: 1px solid var(--border);
+  }
+  .eyebrow {
+    font-family: var(--f-mono);
+    font-size: 12px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--cyan);
+    margin-bottom: 14px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .eyebrow.green { color: var(--green); }
+  .eyebrow.purple { color: var(--purple); }
+  .eyebrow.amber { color: var(--amber); }
+
+  h1, h2, h3, h4 {
+    font-family: var(--f-display);
+    font-weight: 700;
+    line-height: 1.12;
+    letter-spacing: -0.025em;
+    color: var(--ink-bright);
+  }
+  h1 { font-size: clamp(36px, 5vw, 60px); }
+  h2 { font-size: clamp(26px, 3.2vw, 40px); margin-bottom: 16px; }
+  h3 { font-size: 22px; margin-bottom: 10px; }
+  p.lead {
+    font-size: 18.5px;
+    color: var(--muted);
+    max-width: 46em;
+    line-height: 1.6;
+    margin-bottom: 28px;
+  }
+
+  .grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .grid-2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px;
+  }
+  .card {
+    background: var(--surface-card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 30px;
+    transition: all 0.25s ease;
+  }
+  .card:hover {
+    border-color: var(--border-bright);
+    background: var(--surface-elevated);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
+  }
+
+  .tag-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 16px;
+    list-style: none;
+  }
+  .tag-group li {
+    font-family: var(--f-mono);
+    font-size: 11.5px;
+    padding: 3px 8px;
+    background: var(--surface-elevated);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    color: var(--muted);
+  }
+
+  /* Specific Responsive Layout Classes (replaces inline styles) */
+  .home-internship-banner {
+    background: linear-gradient(180deg, #121a28 0%, var(--surface) 100%);
+    border: 1px solid var(--cyan-border);
+    border-radius: 16px;
+    padding: 44px;
+    display: grid;
+    grid-template-columns: 1.25fr 0.75fr;
+    gap: 40px;
+    align-items: center;
+    box-shadow: 0 12px 36px rgba(56, 189, 248, 0.08);
+  }
+  .track-card {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 32px;
+  }
+  @media (max-width: 860px) {
+    .home-internship-banner {
+      grid-template-columns: 1fr !important;
+      gap: 24px;
+      padding: 28px;
+    }
+    .track-card {
+      grid-template-columns: 1fr !important;
+      gap: 20px;
+      padding: 24px;
+    }
+  }
+
+  footer.site-footer {
+    border-top: 1px solid var(--border);
+    background: #070a10;
+    padding: 68px 0 44px;
+    color: #94a3b8;
+    font-size: 14px;
+  }
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 48px;
+  }
+  .footer-col h4 {
+    font-family: var(--f-mono);
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-bright);
+    margin-bottom: 18px;
+  }
+  .footer-col ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .footer-col a:hover { color: var(--ink-bright); }
+  .footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 32px;
+    border-top: 1px solid var(--border);
+    font-size: 13px;
+    color: #94a3b8;
+  }
+
+  .mobile-subnav {
+    display: none;
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+    padding: 10px 16px;
+    overflow-x: auto;
+    white-space: nowrap;
+    gap: 16px;
+    font-size: 13px;
+  }
+  .mobile-subnav a {
+    color: var(--muted);
+    padding: 4px 8px;
+    border-radius: 4px;
+  }
+  .mobile-subnav a.active {
+    color: var(--cyan);
+    background: var(--cyan-soft);
+  }
+
+  @media (max-width: 960px) {
+    .grid-3 { grid-template-columns: 1fr; }
+    .grid-2 { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+  }
+  @media (max-width: 680px) {
+    nav.main-nav { display: none; }
+    .mobile-subnav { display: flex; }
+    .footer-grid { grid-template-columns: 1fr; }
+    .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+  }
+</style>
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap nav-bar">
+    <a class="brand" href="index.html" aria-label="YuktYantra Home">
+      <div class="brand-logo">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+      </div>
+      <div>YuktYantra</div>
+      <span class="tag">APPLIED AI</span>
+    </a>
+    <nav class="main-nav" aria-label="Primary navigation">
+      <a href="index.html">Overview</a><a href="agrotech.html">Farm AI</a><a href="voice-ai.html">Voice AI</a><a href="physical-ai.html">Physical AI</a><a href="internships.html" class="active">Internships</a>
+    </nav>
+    <div class="nav-actions">
+      <a class="btn btn-primary" href="internships.html">Internships</a>
+    </div>
+  </div>
+  <div class="mobile-subnav" aria-label="Mobile navigation">
+    <a href="index.html">Overview</a><a href="agrotech.html">Farm AI</a><a href="voice-ai.html">Voice AI</a><a href="physical-ai.html">Physical AI</a><a href="internships.html" class="active">Internships</a>
+  </div>
+</header>
+<main>
+  <div style="padding: 84px 0 60px; background: radial-gradient(circle at 50% 0%, rgba(56, 189, 248, 0.12), transparent 70%);">
+    <div class="wrap">
+      <div class="eyebrow cyan">Academic R&amp;D Programme</div>
+      <h1>Internships for B.Tech and B.Sc Horticulture</h1>
+      <p class="lead">
+        YuktYantra provides structured, mentored undergraduate research internships and capstone fellowships for students pursuing B.Tech and B.Sc Horticulture degrees. Work on physical perception, agricultural camera carts, and conversational speech models.
+      </p>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:center;">
+        <span class="stage-badge stage-dev">Academic Year 2026&ndash;2027</span>
+        <span class="mono" style="font-size:12px;color:var(--muted);">&middot; CSE &middot; ECE &middot; AI/ML &middot; ISE &middot; Mechanical &middot; Horticulture &middot; Agriculture</span>
+      </div>
+    </div>
+  </div>
+
+  <section id="why">
+    <div class="wrap">
+      <div class="eyebrow cyan">The Framework</div>
+      <h2>Real industrial data, clear evaluation, professional mentorship</h2>
+      <p class="lead">Undergraduate students rarely get to work on real, uncurated physical and agronomic data before graduation. Our internship programme bridges that gap.</p>
+
+      <div class="grid-3" style="margin-top: 32px;">
+        <div class="card">
+          <div class="mono" style="color:var(--cyan);font-size:12px;margin-bottom:8px;">TRAVEL &amp; LOGISTICS</div>
+          <h3>Travel Costs Covered (Unpaid Research)</h3>
+          <p style="color:var(--muted);font-size:14.5px;line-height:1.6;">
+            Local bus transit expenses reimbursed for scheduled vineyard field sessions. This is an unpaid research internship and academic capstone project fellowship.
+          </p>
+        </div>
+        <div class="card">
+          <div class="mono" style="color:var(--cyan);font-size:12px;margin-bottom:8px;">DIRECT MENTORSHIP</div>
+          <h3>Direct Mentorship by Arun Patil</h3>
+          <p style="color:var(--muted);font-size:14.5px;line-height:1.6;">
+            Regular architecture and code reviews led directly by Arun Patil (17+ years in machine learning systems, specialized AI compilers, and retail computer vision platforms).
+          </p>
+        </div>
+        <div class="card">
+          <div class="mono" style="color:var(--cyan);font-size:12px;margin-bottom:8px;">CREDENTIALS</div>
+          <h3>Certificate and Reference Letter</h3>
+          <p style="color:var(--muted);font-size:14.5px;line-height:1.6;">
+            Formal internship certificate and detailed recommendation letter from Arun Patil documenting specific technical achievements. Contributor attribution on open public release notes.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROGRAMME DETAILS & APPLICANT SPECIFICATIONS -->
+  <section style="background:var(--surface);">
+    <div class="wrap">
+      <div class="eyebrow cyan">Cohort Structure</div>
+      <h2>Programme Structure &amp; Selection Steps</h2>
+      <p class="lead">Key administrative parameters for prospective student researchers and faculty departmental advisors.</p>
+
+      <div style="background:var(--surface-card);border:1px solid var(--border);border-radius:12px;padding:32px;margin-top:28px;">
+        <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(210px, 1fr));gap:24px;margin-bottom:28px;">
+          <div>
+            <span class="mono" style="color:var(--cyan);font-size:11.5px;text-transform:uppercase;display:block;margin-bottom:4px;">DURATION</span>
+            <strong style="font-size:18px;color:var(--ink-bright);display:block;margin-bottom:4px;">8 to 12 Weeks</strong>
+            <p style="color:var(--muted);font-size:13px;line-height:1.5;">Flexible around university semester exam calendars.</p>
+          </div>
+          <div>
+            <span class="mono" style="color:var(--cyan);font-size:11.5px;text-transform:uppercase;display:block;margin-bottom:4px;">TIME COMMITMENT</span>
+            <strong style="font-size:18px;color:var(--ink-bright);display:block;margin-bottom:4px;">8–10 Hours / Week</strong>
+            <p style="color:var(--muted);font-size:13px;line-height:1.5;">Part-time during semester; 25–30h during term breaks.</p>
+          </div>
+          <div>
+            <span class="mono" style="color:var(--cyan);font-size:11.5px;text-transform:uppercase;display:block;margin-bottom:4px;">PLACES AVAILABLE</span>
+            <strong style="font-size:18px;color:var(--ink-bright);display:block;margin-bottom:4px;">3 to 4 Students / Track</strong>
+            <p style="color:var(--muted);font-size:13px;line-height:1.5;">Small, close-knit cohort with high-touch 1-on-1 reviews.</p>
+          </div>
+          <div>
+            <span class="mono" style="color:var(--cyan);font-size:11.5px;text-transform:uppercase;display:block;margin-bottom:4px;">START DATES</span>
+            <strong style="font-size:18px;color:var(--ink-bright);display:block;margin-bottom:4px;">Nov 2026 &amp; Feb 2027</strong>
+            <p style="color:var(--muted);font-size:13px;line-height:1.5;">Rolling intake aligned with winter and spring university terms.</p>
+          </div>
+        </div>
+
+        <div style="border-top:1px solid var(--border);padding-top:20px;">
+          <h4 style="font-size:16px;margin-bottom:12px;color:var(--ink-bright);">Four-Step Selection Process:</h4>
+          <ol style="margin-left:20px;color:var(--muted);font-size:14px;line-height:1.6;display:flex;flex-direction:column;gap:6px;">
+            <li><strong>Application Review:</strong> Email resume, academic transcript, and relevant project links (GitHub or coursework portfolio).</li>
+            <li><strong>Technical Discussion:</strong> 30-minute technical problem walkthrough with Arun Patil on perception or systems logic.</li>
+            <li><strong>Agreement Execution:</strong> Standard 1-page student IP assignment and NDA signed prior to project onboarding.</li>
+            <li><strong>Cohort Kickoff:</strong> Repository access, initial dataset samples, and bi-weekly milestone roadmap issued.</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRACKS -->
+  <section id="tracks">
+    <div class="wrap">
+      <div class="eyebrow cyan">Curriculum &amp; Capstones</div>
+      <h2>Three Structured Internship Tracks</h2>
+      <p class="lead">Each project track maps onto an ongoing YuktYantra applied research initiative with defined student deliverables.</p>
+
+      <div style="margin-top:36px; display:flex; flex-direction:column; gap:24px;">
+        <!-- Track 1 -->
+        <div class="track-card">
+          <div>
+            <div class="mono" style="font-size:12px; color:var(--cyan); font-weight:600; margin-bottom:8px;">TRACK 01 &middot; EMBODIED VISION &amp; POSE (B.TECH)</div>
+            <h3>Mobile Challenge Pose &amp; Success Rater</h3>
+            <p style="color:var(--muted);font-size:14.5px;line-height:1.6;margin-top:10px;">
+              Implement on-device computer vision models to score camera-based household manipulation challenges: <em>Steady Stack</em> (tumbler verticality and wobble), <em>Dal Sort</em> (bean bounding boxes and bowl count purity), and <em>Fold Off</em> (cloth edge parallelism).
+            </p>
+          </div>
+          <div style="background:var(--surface-elevated);border:1px solid var(--border);border-radius:8px;padding:20px;">
+            <div class="mono" style="font-size:12px;color:var(--cyan);margin-bottom:8px;">SKILLS &amp; DELIVERABLES</div>
+            <ul style="list-style:none;font-size:13.5px;color:var(--muted);display:flex;flex-direction:column;gap:6px;">
+              <li>&bull; Hand pose estimation (MediaPipe / custom PyTorch)</li>
+              <li>&bull; End-state segmentation &amp; scoring heuristic design</li>
+              <li>&bull; Benchmark validation dataset with failure modes logged</li>
+              <li>&bull; Recommended for: B.Tech CSE, ISE, AI/ML students</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Track 2 -->
+        <div class="track-card">
+          <div>
+            <div class="mono" style="font-size:12px; color:var(--cyan); font-weight:600; margin-bottom:8px;">TRACK 02 &middot; FIELD IMAGING (B.TECH / B.SC HORTICULTURE)</div>
+            <h3>Viticulture Smartphone Imaging Cart &amp; Field Survey</h3>
+            <p style="color:var(--muted);font-size:14.5px;line-height:1.6;margin-top:10px;">
+              Assemble and operate a lightweight manual push-cart rig using mounted smartphones across vineyard rows in Sindagi taluk. Record video passes and collect physical hand measurements (berry sizing with vernier calipers and refractometer sugar readings) across phenological stages to build an initial open dataset.
+            </p>
+          </div>
+          <div style="background:var(--surface-elevated);border:1px solid var(--border);border-radius:8px;padding:20px;">
+            <div class="mono" style="font-size:12px;color:var(--cyan);margin-bottom:8px;">SKILLS &amp; DELIVERABLES</div>
+            <ul style="list-style:none;font-size:13.5px;color:var(--muted);display:flex;flex-direction:column;gap:6px;">
+              <li>&bull; Smartphone video acquisition &amp; spatial row indexing</li>
+              <li>&bull; Hand physiological measurements (caliper diameter &amp; Brix refractometer)</li>
+              <li>&bull; Scheduled field visits in Sindagi taluk (Vijayapura district)</li>
+              <li>&bull; Recommended for: B.Sc Horticulture, B.Tech Agriculture, ECE, Mechanical, CSE</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Track 3 -->
+        <div class="track-card">
+          <div>
+            <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;">
+              <span class="mono" style="font-size:12px; color:var(--cyan); font-weight:600;">TRACK 03 &middot; SPEECH &amp; TELEPHONY (B.TECH)</span>
+              <span class="stage-badge stage-concept">When Compute Available</span>
+            </div>
+            <h3>Full-Duplex Speech &amp; Indic Telephony Adapters</h3>
+            <p style="color:var(--muted);font-size:14.5px;line-height:1.6;margin-top:10px;">
+              Profile open full-duplex speech foundation models (PersonaPlex, Human-1) for Indian telephony. Full-scale GPU profiling and model fine-tuning will run when GPU grant allocations or compute sponsorship are activated. Current prep work focuses on CPU inference tracing, 8 kHz narrowband audio normalizers, and synthetic Kannada dialogue dataset curation.
+            </p>
+          </div>
+          <div style="background:var(--surface-elevated);border:1px solid var(--border);border-radius:8px;padding:20px;">
+            <div class="mono" style="font-size:12px;color:var(--cyan);margin-bottom:8px;">SKILLS &amp; DELIVERABLES</div>
+            <ul style="list-style:none;font-size:13.5px;color:var(--muted);display:flex;flex-direction:column;gap:6px;">
+              <li>&bull; PyTorch CPU inference profiling &amp; execution tracing</li>
+              <li>&bull; 8kHz vs 24kHz audio tokenization quality benchmarks</li>
+              <li>&bull; Synthetic two-channel conversational Kannada dataset curation</li>
+              <li>&bull; Note: GPU benchmarking scheduled upon compute cluster allocation</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- IP AGREEMENT & FIELD SAFETY SECTION -->
+  <section id="agreement" style="background:var(--surface);">
+    <div class="wrap">
+      <div class="grid-2">
+        <div class="card" style="border-left:3px solid var(--cyan);">
+          <div class="mono" style="color:var(--cyan);font-size:12px;margin-bottom:8px;">IP ASSIGNMENT &amp; NDA</div>
+          <h3>Project Agreement &amp; Attribution</h3>
+          <p style="color:var(--muted);font-size:14.5px;line-height:1.6;margin-bottom:12px;">
+            All project source code, models, trade secrets, and field datasets remain the exclusive intellectual property of Arun Patil Labs. Interns sign a clean 1-page student NDA and IP assignment agreement upon acceptance.
+          </p>
+          <p style="color:var(--muted);font-size:14.5px;line-height:1.6;">
+            <strong>Student Credit:</strong> Active student contributors receive formal contributor attribution in public dataset cards and release documentation, along with formal completion certificates and detailed recommendation letters.
+          </p>
+        </div>
+
+        <div class="card" style="border-left:3px solid var(--amber);">
+          <div class="mono" style="color:var(--amber);font-size:12px;margin-bottom:8px;">FIELD SAFETY &amp; LOGISTICS</div>
+          <h3>Vineyard Field Visit Guidelines</h3>
+          <ul style="list-style:none;font-size:14px;color:var(--muted);display:flex;flex-direction:column;gap:10px;">
+            <li>&bull; <strong>Location:</strong> Field visits take place at our private research vineyard block in Sindagi taluk, Vijayapura district (exact directions provided upon selection).</li>
+            <li>&bull; <strong>Transport:</strong> Local public bus fare is reimbursed against tickets for authorized study sessions.</li>
+            <li>&bull; <strong>Consent:</strong> Accepted students must provide signed parental consent and college no-objection/acknowledgement forms.</li>
+            <li>&bull; <strong>Insurance:</strong> Students must have active student health/accident insurance.</li>
+            <li>&bull; <strong>Safety Gear:</strong> Farm visits require standard outdoor protection (sun hat, closed footwear, and hydration).</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- APPLICATION SECTION -->
+  <section id="apply">
+    <div class="wrap">
+      <div class="grid-2" style="align-items:center;">
+        <div>
+          <div class="eyebrow cyan">Application &amp; Eligibility</div>
+          <h2>How to Apply</h2>
+          <p style="color:var(--muted);font-size:15px;line-height:1.6;margin-bottom:14px;">
+            Open to 2nd, 3rd, and 4th year students pursuing B.Tech and B.Sc Horticulture degrees. We welcome independent student applicants as well as college-sponsored capstone teams.
+          </p>
+          <p style="color:var(--muted);font-size:14px;line-height:1.6;">
+            Faculty advisors interested in joint capstone supervision or student recommendations are invited to connect directly with Arun Patil.
+          </p>
+        </div>
+        <div style="background:var(--surface);border:1px solid var(--cyan-border);border-radius:12px;padding:32px;">
+          <h4 style="font-size:19px;margin-bottom:12px;color:var(--ink-bright);">Initiate Application Inquiry</h4>
+          <p style="color:var(--muted);font-size:14px;line-height:1.6;margin-bottom:20px;">
+            Send student resume, GitHub/portfolio link, and preferred project track to:
+          </p>
+          <div style="margin-bottom:20px;">
+            <a class="mono" style="font-size:17px;color:var(--cyan);font-weight:600;" href="mailto:arun.patil@arunpatillabs.com">arun.patil@arunpatillabs.com</a>
+          </div>
+          <p style="font-size:13px;color:var(--faint);">
+            YuktYantra &middot; A unit of Arun Patil Labs &middot; Bengaluru &amp; Sindagi Taluk
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <div class="brand" style="margin-bottom: 14px;">
+          <div class="brand-logo" style="width:28px;height:28px;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+          </div>
+          <div>YuktYantra</div>
+        </div>
+        <p style="font-size:14px;line-height:1.6;margin-bottom:16px;">
+          YuktYantra is an applied AI systems research enterprise based in Bengaluru and Vijayapura district, Karnataka.
+        </p>
+        <span class="status-pill">
+          <span class="pulse-dot"></span> Field Lab: Sindagi Taluk &middot; R&amp;D: Bengaluru
+        </span>
+      </div>
+      <div class="footer-col">
+        <h4>Programmes &amp; Systems</h4>
+        <ul>
+          <li><a href="agrotech.html">Farm AI &amp; Vineyard Monitoring</a></li>
+          <li><a href="voice-ai.html">Full-Duplex Voice Research</a></li>
+          <li><a href="physical-ai.html">Physical AI &amp; Pruning Simulator</a></li>
+          <li><a href="physical-ai.html#gamified-challenges">Mobile Skill Challenges (Concept)</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Student Opportunities</h4>
+        <ul>
+          <li><a href="internships.html">Internships for B.Tech &amp; B.Sc Horticulture</a></li>
+          <li><a href="internships.html#tracks">Project Tracks &amp; Mentorship</a></li>
+          <li><a href="internships.html#agreement">IP Agreement &amp; Attribution</a></li>
+          <li><a href="physical-ai.html#privacy">DPDP Consent Architecture</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Institutional Details</h4>
+        <ul>
+          <li><span style="color:#f8fafc;">Enterprise: YuktYantra (a unit of Arun Patil Labs)</span></li>
+          <li><span style="color:#94a3b8;">Udyam: Registered under Arun Patil Labs</span></li>
+          <li><a href="mailto:arun.patil@arunpatillabs.com">arun.patil@arunpatillabs.com</a></li>
+          <li><span style="color:#94a3b8;">Bengaluru &amp; Sindagi Taluk</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>&copy; 2026 YuktYantra, a unit of Arun Patil Labs. All rights reserved. Registered under Udyam (Karnataka).</div>
+      <div>11 Patent Filings (8 Granted) &middot; Hardware-Aware Intelligence &middot; Open Field Benchmarks</div>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

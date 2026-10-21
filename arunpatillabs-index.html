@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Arun Patil Labs — LLM inference & applied AI</title>
+<meta name="description" content="Arun Patil Labs, Bengaluru. Hardware-aware LLM inference optimization, speculative decoding, voice-AI inference and applied computer vision.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%23141414'/><text x='16' y='22' font-family='Georgia,serif' font-size='16' fill='%23e8a33d' text-anchor='middle'>AP</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#f6f3ee; --ink:#141414; --muted:#5d5a55; --line:#dcd6cc;
+    --accent:#c4741a; --card:#fffdf9;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{ --bg:#111110; --ink:#f1ede6; --muted:#a29d94; --line:#2c2a27; --accent:#e8a33d; --card:#191816; }
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--ink);font:16px/1.65 Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:980px;margin:0 auto;padding:0 24px}
+  header{display:flex;justify-content:space-between;align-items:center;padding:28px 0;border-bottom:1px solid var(--line)}
+  .brand{font-family:Fraunces,serif;font-weight:600;font-size:20px;letter-spacing:-.01em}
+  .brand span{color:var(--accent)}
+  nav a{color:var(--muted);text-decoration:none;margin-left:22px;font-size:14px}
+  nav a:hover{color:var(--ink)}
+  .hero{padding:96px 0 72px}
+  .eyebrow{font-family:"JetBrains Mono",monospace;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:22px}
+  h1{font-family:Fraunces,serif;font-weight:400;font-size:clamp(36px,6vw,62px);line-height:1.08;letter-spacing:-.02em;max-width:16ch}
+  h1 em{font-style:italic;color:var(--accent)}
+  .lede{margin-top:26px;max-width:58ch;color:var(--muted);font-size:18px}
+  .cta{display:inline-block;margin-top:34px;padding:13px 22px;background:var(--ink);color:var(--bg);text-decoration:none;border-radius:6px;font-weight:500;font-size:15px}
+  .cta:hover{background:var(--accent)}
+  section{padding:64px 0;border-top:1px solid var(--line)}
+  h2{font-family:"JetBrains Mono",monospace;font-weight:400;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:32px}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:26px}
+  .card .n{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--accent)}
+  .card h3{font-family:Fraunces,serif;font-weight:600;font-size:21px;margin:10px 0 10px;letter-spacing:-.01em}
+  .card p{color:var(--muted);font-size:15px}
+  .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:28px}
+  .stat b{display:block;font-family:Fraunces,serif;font-weight:400;font-size:44px;line-height:1;letter-spacing:-.02em}
+  .stat span{color:var(--muted);font-size:14px}
+  .bg p{max-width:68ch;color:var(--muted);margin-bottom:14px}
+  .bg strong{color:var(--ink);font-weight:500}
+  .contact a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--accent)}
+  .contact p{font-size:20px;font-family:Fraunces,serif;margin-bottom:10px}
+  footer{padding:36px 0 48px;color:var(--muted);font-size:13px;border-top:1px solid var(--line)}
+  @media (max-width:600px){ nav{display:none} .hero{padding:64px 0 48px} }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="brand">Arun Patil <span>Labs</span></div>
+    <nav><a href="#work">Work</a><a href="#background">Background</a><a href="#contact">Contact</a></nav>
+  </header>
+
+  <div class="hero">
+    <p class="eyebrow">Bengaluru · Applied AI Research &amp; Engineering</p>
+    <h1>Making large models <em>fast, cheap</em> and production-ready.</h1>
+    <p class="lede">Arun Patil Labs builds and advises on LLM inference — speculative decoding, hardware-aware optimization and model bring-up on non-NVIDIA silicon — and turns it into products that serve real users at low latency and cost.</p>
+    <a class="cta" href="mailto:arun.patil@arunpatillabs.com">Start a conversation</a>
+  </div>
+
+  <section id="work">
+    <h2>What we work on</h2>
+    <div class="grid">
+      <div class="card">
+        <div class="n">01</div>
+        <h3>Inference optimization</h3>
+        <p>Speculative decoding, quantization and serving design that cut latency and cost per token without hurting quality. Model bring-up across architectures such as Qwen3, GLM-4 and GPT-OSS.</p>
+      </div>
+      <div class="card">
+        <div class="n">02</div>
+        <h3>Voice-AI inference cascade</h3>
+        <p>Routing between small, fast models and frontier models for voice agents, built for Indian languages and real-time call latency budgets.</p>
+      </div>
+      <div class="card">
+        <div class="n">03</div>
+        <h3>Novel architectures &amp; efficient training</h3>
+        <p>Research into block diffusion, reasoning-efficient transformers and data-efficient training, taken from experiment to deployable model.</p>
+      </div>
+      <div class="card">
+        <div class="n">04</div>
+        <h3>Applied computer vision</h3>
+        <p>Production vision systems for retail and operations: inventory, loss prevention, safety and compliance at multi-site scale.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="background" class="bg">
+    <h2>Background</h2>
+    <div class="stats" style="margin-bottom:40px">
+      <div class="stat"><b>17+</b><span>years in ML &amp; systems</span></div>
+      <div class="stat"><b>11</b><span>patents (8 granted)</span></div>
+    </div>
+    <p>Founded by <strong>Arun Kumar Patil</strong>, whose work spans frontier LLM inference at <strong>Cerebras</strong>, FPGA AI kernels, CNN compilers and quantization at <strong>Xilinx</strong>, a production computer-vision platform at <strong>Target</strong>, and embedded imaging at <strong>Ittiam Systems</strong>.</p>
+    <p>Published research includes the Implicit Chain Transformer (“Thinking Inside the Box”).</p>
+  </section>
+
+  <section id="contact" class="contact">
+    <h2>Contact</h2>
+    <p><a href="mailto:arun.patil@arunpatillabs.com">arun.patil@arunpatillabs.com</a></p>
+    <p><a href="https://www.linkedin.com/in/arun-kumar-patil-69674420" target="_blank" rel="noopener">LinkedIn</a></p>
+  </section>
+
+  <footer>© <span id="y">2026</span> Arun Patil Labs · Bengaluru, India</footer>
+</div>
+<script>document.getElementById('y').textContent=new Date().getFullYear()</script>
+</body>
+</html>
