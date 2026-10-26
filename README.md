@@ -7,7 +7,7 @@ A clean, responsive static website and research publication suite for **YuktYant
 | File | Purpose | Description |
 | :--- | :--- | :--- |
 | `index.html` | Flagship Homepage | Main landing page: Applied AI systems overview, core programmes, and direct link to the 39-slide viticulture field study PDF. |
-| `agrotech.html` | Farm AI & Viticulture | Precision agriculture field study in Sindagi taluk: 51-row block explorer, 4-phase protocol, and direct link to the field study PDF. |
+| `agrotech.html` | Farm AI & Viticulture | Precision agriculture field study in Kudari Salawadgi, Basavana Bagewadi taluk: 51-row block explorer, 4-phase protocol, and direct link to the field study PDF. |
 | `internships.html` | Academic Fellowships | Research fellowship portal for B.Tech & B.Sc Horticulture students (3 tracks, applicant matrix, IP & safety terms). |
 | `voice-ai.html` | Duplex Voice Lab | High-throughput speech-to-speech inference research, 80ms live frame animation, and GPU concurrency calculator. |
 | `physical-ai.html` | Physical AI & Manipulation | Procedural grapevine pruning decision model, 10 domestic mobile manipulation challenges, and DPDP consent architecture. |
